@@ -1,0 +1,31 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if searched_products%}
+      <h2>Found {{ searched_products|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found 0 searched_products for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  
+    {% for item in searched_products %}
+      <div class="col-sm-6 col-md-3">
+          <h1>{{item.name}}</h1>
+          <img src="{{item.pic.url}}"  class="img-responsive" alt="Image" width="100" height="100">
+          <h1>{{item.price }}Rwf</h1>
+          <!-- {% for i in item.availability_in__stores %}
+            <p>{{i.store_name}}</p> -->
+          {% endfor %}
+          
+      </div>
+    {% endfor %}
+ 
+  </div>
+</div>
+{% endblock %}
